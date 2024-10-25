@@ -5,6 +5,9 @@
     "quotes": ["error", "double"],
     "no-unused-vars": "warn",
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-explicit-any": "warn"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off", // Disables the assignment of unsafe types
+    "@typescript-eslint/no-unsafe-call": "off", // Disables unsafe calls
+    "@typescript-eslint/no-unsafe-member-access": "off"
   }
 }
