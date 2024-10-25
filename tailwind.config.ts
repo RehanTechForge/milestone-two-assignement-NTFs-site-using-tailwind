@@ -10,7 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         background: "var(--background)",
-        foreground: "var(--foreground)",
+        textColor: "var(--text)",
+        backgroundSecondary: "var(--backgroundSecondary)",
+        captionText: "var(--captionText)",
+        btnColor: "var(--btnColor)",
+        blueColor: "var(--blueColor)",
+        redColor: "var(--redColor)",
+      },
+      fontFamily: {
+        "work-sans": ['"Work Sans"', "sans-serif"],
+        "space-mono": ['"Space Mono"', "monospace"],
       },
     },
   },
