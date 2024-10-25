@@ -5,7 +5,7 @@ const DiscoverSectionItems = () => {
   return (
     <div className="flex flex-wrap justify-center gap-6 px-4 md:px-10 lg:px-20">
       {items.map((item, index) => (
-        <Card item={item} index={index} />
+        <Card item={item} index={index} key={index} />
       ))}
     </div>
   );

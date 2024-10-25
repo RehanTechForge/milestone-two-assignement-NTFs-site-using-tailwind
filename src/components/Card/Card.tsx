@@ -1,6 +1,7 @@
+import Image from "next/image";
 import React from "react";
 
-const Card = ({ item, index }:any) => {
+const Card = ({ item, index }: any) => {
   return (
     <div
       key={index}
@@ -8,10 +9,12 @@ const Card = ({ item, index }:any) => {
     >
       {/* Image Section */}
       <div className="relative">
-        <img
+        <Image
           src={item.image}
           alt={item.title}
           className="w-full h-[300px] object-cover"
+          height={300}
+          width={400}
         />
       </div>
 

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const ProfileCards = () => {
   const profiles = [
     {
@@ -83,10 +85,12 @@ const ProfileCards = () => {
         >
           <div className="flex flex-col items-center">
             <div className="relative">
-              <img
+              <Image
                 src={profile.image}
                 alt={profile.name}
                 className="w-24 h-24 rounded-full object-cover border-4 border-gray-700"
+                height={24}
+                width={24}
               />
               <div className="absolute top-0 right-0 bg-background text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">
                 {profile.id}

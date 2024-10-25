@@ -1,7 +1,6 @@
 import Input from "@/components/Input/Input";
 import Image from "next/image";
 import React from "react";
-import { FaRegEnvelope } from "react-icons/fa6";
 
 const NewsLetter = () => {
   return (

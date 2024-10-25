@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const NFTCard = () => {
@@ -36,10 +37,12 @@ const NFTCard = () => {
     <div className="h-[250px] sm:h-auto relative mx-auto my-10 text-white">
       {/* Background image */}
       <div className="relative overflow-hidden">
-        <img
+        <Image
           src="/images/main/mushroom.png" // Replace with the actual image path
           alt="Magic Mushrooms"
           className="w-full h-[250] sm:h-full object-cover"
+          height={250}
+          width={800}
         />
 
         {/* Overlay with gradient */}
