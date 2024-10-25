@@ -1,5 +1,4 @@
 "use client";
-import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 
 // Props interface for type safety
@@ -13,32 +12,32 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   duration = 3, // Default duration is 3 seconds
 }) => {
   const [currentNumber, setCurrentNumber] = useState<number>(0);
-  const controls = useAnimation();
 
   useEffect(() => {
-    // Start the number animation from 0 to the target number
-    controls.start({
-      number: targetNumber,
-      transition: {
-        duration: duration, // Duration of the animation
-        ease: "easeInOut",
-      },
-    });
-  }, [targetNumber, duration, controls]);
+    const totalSteps = 100; // Number of steps for the animation
+    const increment = (targetNumber - currentNumber) / totalSteps; // Increment value per step
+    const intervalTime = (duration * 1000) / totalSteps; // Time per step in milliseconds
+
+    const interval = setInterval(() => {
+      setCurrentNumber((prev) => {
+        const nextNumber = Math.round(prev + increment);
+        // Stop the animation when we reach or exceed the target number
+        if (nextNumber >= targetNumber) {
+          clearInterval(interval);
+          return targetNumber; // Ensure we set it to the exact target
+        }
+        return nextNumber;
+      });
+    }, intervalTime);
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, [targetNumber, duration, currentNumber]);
 
   return (
-    <motion.div
-      animate={controls}
-      initial={{ number: 0 }} // Start from 0
-      onUpdate={(latest: { number: number }) => {
-        // Update the state with the current value of the animation
-        setCurrentNumber(Math.round(latest.number));
-      }}
-      className="font-space-mono font-semibold text-[34px]"
-    >
+    <div className="font-space-mono font-semibold text-[34px]">
       {/* Display the animated number */}
       {currentNumber}K+
-    </motion.div>
+    </div>
   );
 };
 
